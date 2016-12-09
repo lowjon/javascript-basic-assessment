@@ -113,19 +113,39 @@ var removeItem = function (arr, str) {
 // #11 Write a function  called doubleTheFun that takes 1 parameter. It should double numbers, and
 // repeats strings. example 4->8, 2.5->5, 'Awesome'->'AwesomeAwesome'
 var doubleTheFun = function(pram){
-	return pram + pram;
+	if(Number(pram)){
+		return Number(pram) * 2;
+	} return pram + pram;
 };
 
 
 // #12 Write function getValueOfProperty that takes in an object, and the name of a property on the object
 // return the value from the object that corresponds to the property
+function getValueOfProperty(obj, key) {
+	return obj[key];
 
+}
 
 // #13 Write a function called makeChatMessage that takes in a message and author as parameters
 // and returns an object with a message, author, and timestamp, that is
 // the current time as a Date object
+function makeChatMessage(msg, usr) {
+	return {message: msg, author: usr, timestamp: new Date(Date.now())};
+};
 
-// #14 Create a function called coderTest that takes in an object that is a person. It looks to see if the person’s name is Jeremy and then changes the person object to have a property called lovesCode with a value of 10.  If their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+// #14 Create a function called coderTest that takes in an object that is a
+//person. It looks to see if the person’s name is Jeremy and then changes the
+//person object to have a property called lovesCode with a value of 10.  If
+//their name is Brack set lovesCode to 0.  otherwise set lovesCode to 5.
+
+function coderTest(ppl) {
+	if(ppl.name ==='Jeremy'){
+		ppl.lovesCode = 10;
+	} else if (ppl.name === 'Brack') {
+		ppl.lovesCode = 0;
+	} else{ppl.lovesCode = 5;}
+
+};
 
 
 // #15 Create a function called outside that takes in a temperature (number), a humidity(number), and a cloudiness(number), in that order. Using the following to return the correct values
@@ -137,5 +157,27 @@ var doubleTheFun = function(pram){
     Otherwise - return "I love outside"
 */
 
-// #16 Create a function called callerBack that takes in a function (holla) and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
+function outside(temp, hum, floof) {
+	if (temp > 80 && hum > 40){
+		return "I'm all sweat";
+	} else if (temp < 40 && floof > 60) {
+		return "I have icecicles";
+	} else if (temp > 80 && hum < 40 && floof < 20) {
+		return "I'm literally in the desert";
+	} else if (temp > 80 || hum > 50 || floof > 50) {
+		return "Hmm, probably not"
+	} else {
+		return "I love outside"
+	}
+
+};
+
+// #16 Create a function called callerBack that takes in a function (holla)
+//and a string parameter(back) and invokes it(holla) with the argument string(back) + ' back'."
 // example - If I call you with 'Give it' you should invoke holla with 'Give it back'
+
+// ths one is worded really weird ^
+
+function callerBack(cb, str) {
+	return cb(str + ' back');
+};
